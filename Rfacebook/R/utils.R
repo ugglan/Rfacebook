@@ -299,6 +299,7 @@ callAPI <- function(url, token){
 		url <- gsub(" ", "%20", url)
 		url.data <- GET(url)
 	}
+	message("call: ",url)
 	if (class(token)[1]!="character" & class(token)[1]!="config" & class(token)[1]!="Token2.0"){
 		stop("Error in access token. See help for details.")
 	}
