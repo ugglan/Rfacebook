@@ -50,7 +50,7 @@ getFriends <- function(token, simplify=FALSE){
 	}
 
 	if (simplify==TRUE){
-		query <- paste0(base_url, '/me/friends?limit=5000')
+		query <- paste0(base_url, '/me/friends?')
 		content <- callAPI(query, token)
 		if (length(content$data)==0){
 			stop("No friend information is available. See ?getFriends for more details.")
@@ -74,7 +74,7 @@ getFriends <- function(token, simplify=FALSE){
 	if (simplify==FALSE){
 		query <- paste(base_url, "/me/friends?",
 			"fields=id,name,first_name,last_name,gender,locale,birthday,location,",
-			"hometown,relationship_status,picture.type(large)&limit=100", sep="")
+			"hometown,relationship_status,picture.type(large)", sep="")
 		content <- callAPI(query, token)
 		if (length(content$data)==0){
 			stop("No friend information is available.")
